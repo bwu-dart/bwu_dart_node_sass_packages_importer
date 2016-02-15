@@ -65,7 +65,7 @@ module.exports = function (url, file, done) {
   var resolveOverride = function(importPath) {
     var themeOverrideFilePath = findThemeOverrideFile(process.cwd());
     var importParts = /(?:::)(.*)(?::)(.*)(?::)(.*)(?:::)(.*)/g.exec(importPath);
-    if(themeOverrideFilePath) {
+    if(themeOverrideFilePath && importParts) {
       // load `sass_theme_override.cfg` file content
       var content = fs.readFileSync(themeOverrideFilePath, {encoding: 'UTF8'});
       if (content) {

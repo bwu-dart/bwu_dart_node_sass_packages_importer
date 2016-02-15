@@ -46,6 +46,23 @@ module.exports = {
     });
   },
 
+  'import path starting with `::` but not fitting the full pattern should return the passed value': function (test) {
+    var url = '::asome_dir/some_style';
+    importer(url, 'file', function (obj) {
+      assert.deepEqual(obj, {file: url});
+      test.done();
+    });
+  },
+
+  'should resolve overridden package path': function (test) {
+    var url = '::e:f:g::some_dir/some_style';
+    var resolvedUrl = 'file:/home/zoechi/.pub-cache/hosted/pub.dartlang.org/sass-0.4.2/lib/sass.dart';
+    importer(url, 'file', function (obj) {
+      assert.deepEqual(obj, {file: resolvedUrl});
+      test.done();
+    });
+  },
+
 };
 
 
