@@ -1,6 +1,6 @@
 {
   "name": "bwu_dart_node_sass_packages_importer",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A custom importer for node-sass to enable importing files from Dart packages",
   "main": "./src",
   "repository": {

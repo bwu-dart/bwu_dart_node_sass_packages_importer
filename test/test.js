@@ -46,6 +46,15 @@ module.exports = {
     });
   },
 
+  'should return default path if no override file exists': function (test) {
+    var url = '::a:a:a::some_dir/some_style';
+    var resolvedUrl = 'some_dir/some_style';
+    importer(url, 'file', function (obj) {
+      assert.deepEqual(obj, {file: resolvedUrl});
+      test.done();
+    });
+  },
+  
   'import path starting with `::` but not fitting the full pattern should return the passed value': function (test) {
     var url = '::asome_dir/some_style';
     importer(url, 'file', function (obj) {

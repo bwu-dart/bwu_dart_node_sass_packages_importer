@@ -80,6 +80,8 @@ module.exports = function (url, file, done) {
           return newPathMatches[1];
         }
       }
+    }
+    if(importParts) {
       return importParts[4];
     }
     // return default import path
